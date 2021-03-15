@@ -72,6 +72,6 @@ class AccountsController extends Controller
         if (empty($token) || !$this->userService->isAuth($token)) {
             return '尚未登录';
         }
-        return session(md5($token));
+        dd( session(md5($token)));
     }
 }

@@ -65,6 +65,6 @@ class RegisterController extends Controller
         $user = $this->create($data);
         $token = $this->userService->auth($data);
         session([md5($token) => $user]);
-        return redirect()->route('user.profile')->cookie('jwt-token',);
+        return redirect()->route('user.profile')->cookie('jwt-token',$token);
     }
 }

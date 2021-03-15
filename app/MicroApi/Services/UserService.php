@@ -6,6 +6,7 @@ namespace App\MicroApi\Services;
 
 use App\MicroApi\Exceptions\RpcException;
 use App\MicroApi\Facades\HttpClient;
+use App\MicroApi\Items\TokenItem;
 use App\MicroApi\Items\UserItem;
 use Illuminate\Support\Facades\Log;
 
@@ -30,7 +31,8 @@ class UserService
             Log::error('MicroApi.UserService.create Call Failed '.$e->getMessage());
             throw new RpcException("调用远程服务失败");
         }
-        return $this->decode($response->getBody()->getContents())->user;
+        $result = $this->decode($response->getBody()->getContents());
+        return $result->user;
     }
 
     /**
