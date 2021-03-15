@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\MicroApi\Exceptions\RpcException;
 use App\MicroApi\Services\UserService;
 use App\Shop\Customers\Customer;
 use App\Http\Controllers\Controller;
-use App\Shop\Customers\Repositories\Interfaces\CustomerRepositoryInterface;
 use App\Shop\Customers\Requests\RegisterCustomerRequest;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
@@ -49,6 +48,7 @@ class RegisterController extends Controller
      *
      * @param  array  $data
      * @return Customer
+     * @throw RpcException
      */
     protected function create(array $data)
     {
@@ -58,6 +58,7 @@ class RegisterController extends Controller
     /**
      * @param RegisterCustomerRequest $request
      * @return \Illuminate\Http\RedirectResponse
+     * @throw RpcException
      */
     public function register(RegisterCustomerRequest $request)
     {
