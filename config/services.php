@@ -41,5 +41,9 @@ return [
         'jwt_algorithms' => env('MICRO_JWT_ALGORITHMS'),
         'broker_host' => env('MICRO_BROKER_HOST'),
         'broker_port' => env('MICRO_BROKER_PORT')
-    ]
+    ],
+    'jaeger' => [
+        'agent' => 'laracom-jaeger:6831',
+        'sampler' => 'probabilistic',
+    ],
 ];

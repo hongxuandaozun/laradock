@@ -168,6 +168,7 @@ return [
         App\Providers\GlobalTemplateServiceProvider::class,
         App\Providers\RepositoryServiceProvider::class,
         Laratrust\LaratrustServiceProvider::class,
+        \App\Providers\JaegerServiceProvider::class,
     ],
 
     /*

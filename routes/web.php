@@ -73,7 +73,11 @@ Route::namespace('Auth')->group(function () {
     Route::post('cart/login', 'CartLoginController@login')->name('cart.login');
     Route::get('logout', 'LoginController@logout');
 });
-
+Route::get("/demo/hello", function () {
+    $demoService = new \App\MicroApi\Services\DemoService();
+    $message = $demoService->sayHello("学院君");
+    dd($message);
+});
 Route::namespace('Front')->group(function () {
     Route::get('/', 'HomeController@index')->name('home');
     Route::group(['middleware' => ['auth', 'web']], function () {
