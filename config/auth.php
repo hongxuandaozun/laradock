@@ -14,8 +14,8 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
-        'passwords' => 'users',
+        'guard' => 'jwt',
+        'passwords' => 'service',
     ],
 
     /*
@@ -56,6 +56,10 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+        'jwt' => [
+            'driver' => 'jwt',
+            'provider' => 'micro_user'
+        ]
     ],
 
     /*
@@ -85,6 +89,10 @@ return [
              'driver' => 'eloquent',
              'model' => App\Shop\Employees\Employee::class,
          ],
+        'micro_user' => [
+            'driver' => 'micro',
+            'model' => \App\MicroApi\Items\UserItem::class
+        ]
     ],
 
     /*
@@ -114,6 +122,9 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
         ],
+        'service' => [
+            'provider' => 'micro_user'
+        ]
     ],
 
 ];

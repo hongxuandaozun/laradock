@@ -8,6 +8,7 @@ use App\Shop\Customers\Customer;
 use App\Http\Controllers\Controller;
 use App\Shop\Customers\Requests\RegisterCustomerRequest;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -63,9 +64,16 @@ class RegisterController extends Controller
     public function register(RegisterCustomerRequest $request)
     {
         $data = $request->except('_method', '_token');
+
         $user = $this->create($data);
-        $token = $this->userService->auth($data);
-        session([md5($token) => $user]);
-        return redirect()->route('user.profile')->cookie('jwt-token',$token);
+        if($user){
+            $token = Auth::login($data);
+            return redirect()->route('accounts')->cookie('jwt_token', $token);
+        } else {
+            throw new AuthenticationException('注册失败，请重试');
+        }
+
+//        session([md5($token) => $user]);
+//        return redirect()->route('user.profile')->cookie('jwt-token',$token);
     }
 }

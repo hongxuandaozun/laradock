@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\MicroApi\Services\UserService;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Cashier\Cashier;
 
@@ -32,6 +33,9 @@ class AppServiceProvider extends ServiceProvider
                     'Content-Type' => 'application/json'
                 ]
             ]);
+        });
+        $this->app->singleton('microUserService',function ($app){
+            return new UserService();
         });
     }
 }

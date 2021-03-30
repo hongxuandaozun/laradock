@@ -35,7 +35,11 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
     'micro' => [
-        'api_gateway' => env('MICRO_API_GATEWAY','localhost:8080'),
-        'timeout' => env('MICRO_TIMEOUT',3.0)
+        'api_gateway' => env('MICRO_API_GATEWAY'),
+        'timeout' => env('MICRO_TIMEOUT'),
+        'jwt_key' => env('MICRO_JWT_KEY'),
+        'jwt_algorithms' => env('MICRO_JWT_ALGORITHMS'),
+        'broker_host' => env('MICRO_BROKER_HOST'),
+        'broker_port' => env('MICRO_BROKER_PORT')
     ]
 ];

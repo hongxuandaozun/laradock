@@ -76,9 +76,7 @@ Route::namespace('Auth')->group(function () {
 
 Route::namespace('Front')->group(function () {
     Route::get('/', 'HomeController@index')->name('home');
-    Route::get('/profile','AccountsController@profile')->name('user.profile');
     Route::group(['middleware' => ['auth', 'web']], function () {
-
         Route::namespace('Payments')->group(function () {
             Route::get('bank-transfer', 'BankTransferController@index')->name('bank-transfer.index');
             Route::post('bank-transfer', 'BankTransferController@store')->name('bank-transfer.store');

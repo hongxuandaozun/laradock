@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\ProcessBrokerMessage;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -13,7 +14,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        Commands\LaraStructure::class
+        Commands\LaraStructure::class,
+        ProcessBrokerMessage::class
     ];
 
     /**

@@ -1,7 +1,18 @@
 {
     "name": "jsdecena/laracom",
     "description": "Laravel powered e-commerce",
-    "keywords": ["e-commerce", "ecommerce", "shopping-cart", "laravel", "laracom", "laravel-ecommerce", "shop", "laravel5", "framework", "package"],
+    "keywords": [
+        "e-commerce",
+        "ecommerce",
+        "shopping-cart",
+        "laravel",
+        "laracom",
+        "laravel-ecommerce",
+        "shop",
+        "laravel5",
+        "framework",
+        "package"
+    ],
     "license": "MIT",
     "type": "project",
     "require": {
@@ -10,26 +21,30 @@
         "barryvdh/laravel-dompdf": "^0.8.2",
         "binarytorch/larecipe": "^1.2",
         "doctrine/dbal": "^2.5",
+        "jukylin/jaeger-php": "dev-master",
         "fideloper/proxy": "~4.0",
-        "kalnoy/nestedset": "^4.3",
+        "firebase/php-jwt": "^5.2",
+        "gloudemans/shoppingcart": "dev-master",
         "guzzlehttp/guzzle": "^6.3",
         "jsdecena/baserepo": "^1.0",
         "jsdecena/mailchimp": "~7.0",
         "jsdecena/mcpro": "1.1.*",
-        "laravel/cashier": "~7.0",
-        "laravel/framework": "5.7.*|^6.0|^7.0|^8.0",
+        "kalnoy/nestedset": "^4.3",
+        "laravel/cashier": "^9.0.1",
+        "laravel/framework": "5.8.0",
         "laravel/tinker": "~1.0",
         "nicolaslopezj/searchable": "^1.10",
         "paypal/rest-api-sdk-php": "*",
+        "repejota/nats": "^0.8.7",
         "santigarcor/laratrust": "5.0.*",
-        "shippo/shippo-php": "^1.4",
-        "gloudemans/shoppingcart": "dev-master"
+        "shippo/shippo-php": "^1.4"
     },
     "require-dev": {
+        "composer/composer": "^2.0",
+        "filp/whoops": "~2.0",
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "~1.0",
-        "phpunit/phpunit": "~7.0",
-        "filp/whoops": "~2.0"
+        "phpunit/phpunit": "~7.0"
     },
     "autoload": {
         "files": [

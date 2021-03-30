@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Services\Auth\JwtGuard;
+use App\Services\Auth\MicroUserProvider;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -26,6 +28,15 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Auth::provider('micro', function($app, array $config) {
+            // 返回一个Illuminate\Contracts\Auth\UserProvider实例...
+            return new MicroUserProvider($config['model']);
+        });
+
+        // 扩展 Auth Guard
+        Auth::extend('jwt', function($app, $name, array $config) {
+            // 返回一个Illuminate\Contracts\Auth\Guard实例...
+            return new JwtGuard(Auth::createUserProvider($config['provider']), $app->make('request'));
+        });
     }
 }
