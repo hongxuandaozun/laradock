@@ -2,6 +2,7 @@ version: '2'
 services:
   laracom-php:
     image: fluxoti/php:7.3-web
+    container_name: laracom-php
     volumes:
       - ./:/var/www/app
     ports:

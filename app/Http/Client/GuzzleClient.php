@@ -22,7 +22,7 @@ class GuzzleClient extends Client
         $spanName = $this->generateJaegerSpanName($uri,$options);
         $span = $tracer->startSpan($spanName,[
                     'child_of' => $spanContext,
-                    'tag' => [
+                    'tags' => [
                         'http.method' => $method,
                         'http.url' => $spanName,
                         'span.kind' => 'client'
